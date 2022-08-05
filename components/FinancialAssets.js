@@ -18,7 +18,7 @@ export default function FinancialAssets(assetItem) {
       </div>
       <div>
         <h2>Share Price</h2>
-        <span>$ {assetItem.sharePrice}</span>
+        <span>$ {Math.floor(assetItem.sharePrice)}</span>
       </div>
       <style jsx>{`
         .assetItem {
