@@ -22,7 +22,7 @@ export default function Detail(data) {
       <div className="financialAssets">
         <h1>FinancialAssets</h1>
         <div className="AssetGrid">
-          {data.financialAssets.map((asset, index) => (
+          {data.financialAssets?.map((asset, index) => (
             <FinancialAssets key={index} {...asset} />
           ))}
         </div>
