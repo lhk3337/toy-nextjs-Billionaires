@@ -14,6 +14,7 @@ export default function Detail(data) {
         />
         <div className="info">
           <span className="name">{data.name}</span>
+          <h2>County : {data.country}</h2>
           <h2 className="worth">Networth : {Math.floor(data.netWorth / 1000)} Billion</h2>
           <h2 className="industry">Industry : {data.industries}</h2>
           <p className="bio">{data.bio}</p>
@@ -54,7 +55,7 @@ export default function Detail(data) {
           text-align: center;
           display: inline;
           font-size: 3rem;
-          margin-top: 3rem;
+          margin: 3rem 0;
           color: #a88a59;
           width: 20rem;
           border-top: 5px solid #1a2236;
@@ -114,7 +115,7 @@ export default function Detail(data) {
             justify-content: space-between;
           }
           .info .worth {
-            margin: 2rem 0;
+            margin: 1.2rem 0;
           }
           .info .bio {
             margin-top: 1rem;
@@ -129,6 +130,11 @@ export default function Detail(data) {
             padding: 2rem 6rem;
             gap: 4rem;
           }
+
+          .info .name {
+            margin-top: 0;
+            margin-bottom: 1rem;
+          }
         }
         @media (min-width: 1536px) {
           .container {
@@ -137,20 +143,21 @@ export default function Detail(data) {
           .info {
             max-width: 700px;
           }
-          .info .worth {
-            margin: 3rem 0;
-          }
           .info .bio {
             margin-top: 2rem;
           }
-          .info .name {
-            margin-top: 0;
+          .info .worth {
+            margin: 1.6rem 0;
           }
           .financialAssets .AssetGrid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             padding: 2rem 6rem;
             gap: 4rem;
+          }
+          .info .name {
+            margin-top: 0;
+            margin-bottom: 2rem;
           }
         }
         @media (min-width: 1792px) {
