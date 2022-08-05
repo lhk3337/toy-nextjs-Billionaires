@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
+import Link from "next/link";
 import Person from "../components/Person";
-import { ApiData } from "../lib/api";
 
-export default function IndexPage() {
-  const [persons, setPerson] = useState();
-
-  useEffect(() => {
-    ApiData(setPerson);
-  }, []);
-
+export default function IndexPage({ persons }) {
   return (
     <div className="container">
       {persons?.map((person) => (
-        <Person key={person.id} {...person} />
+        <Link href={`/person/${person.id}`} key={person.id}>
+          <a>
+            <Person key={person.id} {...person} />
+          </a>
+        </Link>
       ))}
       <style jsx>{`
         .container {
@@ -57,4 +54,13 @@ export default function IndexPage() {
       `}</style>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const persons = await (await fetch(`http://localhost:3000/api/person`)).json();
+  return {
+    props: {
+      persons,
+    },
+  };
 }
