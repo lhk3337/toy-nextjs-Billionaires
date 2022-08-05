@@ -46,6 +46,11 @@ export default function IndexPage({ persons }) {
             grid-template-columns: repeat(7, minmax(0, 1fr));
           }
         }
+        @media (min-width: 2548px) {
+          .container {
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+          }
+        }
       `}</style>
     </div>
   );

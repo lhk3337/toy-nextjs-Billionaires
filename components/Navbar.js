@@ -6,7 +6,7 @@ export default function Navbar() {
         nav {
           padding: 2.25rem;
           padding-left: 3rem;
-          margin-bottom: 2rem;
+          margin-bottom: 5rem;
           border-bottom: 12px solid black;
         }
         h1 {

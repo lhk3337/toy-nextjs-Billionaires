@@ -15,27 +15,26 @@ export default function Person(personItem) {
   };
 
   return (
-    <>
-      <div className="item" onClick={() => onClick(personItem.id, personItem.name)}>
-        {personItem.squareImage === "https:undefined" ? (
-          <Image
-            src={
-              "https://specials-images.forbesimg.com/imageserve/6050f48ca1ab099ed6e290cc/416x416.jpg?background=000000&cropX1=0&cropX2=800&cropY1=0&cropY2=800"
-            }
-            width="100%"
-            height="250px"
-            objectFit="fill"
-            className="images"
-          />
-        ) : (
-          <Image src={personItem.squareImage} width="100%" height="250px" objectFit="fill" className="images" />
-        )}
-        <div className="userInfo">
-          <p className="personName">{personItem.name}</p>
-          <p className="assets">${Math.floor(personItem.netWorth / 1000)}B</p>
-        </div>
-        <span className="industries">{personItem.industries}</span>
+    <div className="item" onClick={() => onClick(personItem.id, personItem.name)}>
+      {personItem.squareImage === "https:undefined" ? (
+        <Image
+          src={
+            "https://specials-images.forbesimg.com/imageserve/6050f48ca1ab099ed6e290cc/416x416.jpg?background=000000&cropX1=0&cropX2=800&cropY1=0&cropY2=800"
+          }
+          width="100%"
+          height="250px"
+          objectFit="fill"
+          className="images"
+        />
+      ) : (
+        <Image src={personItem.squareImage} width="100%" height="250px" objectFit="fill" className="images" />
+      )}
+      <div className="userInfo">
+        <p className="personName">{personItem.name}</p>
+        <p className="assets">${Math.floor(personItem.netWorth / 1000)}B</p>
       </div>
+      <span className="industries">{personItem.industries}</span>
+
       <style global jsx>{`
         .item {
           display: flex;
@@ -85,6 +84,6 @@ export default function Person(personItem) {
           font-size: 20px;
         }
       `}</style>
-    </>
+    </div>
   );
 }
