@@ -1,15 +1,10 @@
-import Link from "next/link";
 import Person from "../components/Person";
 
 export default function IndexPage({ persons }) {
   return (
     <div className="container">
       {persons?.map((person) => (
-        <Link href={`/person/${person.id}`} key={person.id}>
-          <a>
-            <Person key={person.id} {...person} />
-          </a>
-        </Link>
+        <Person key={person.id} {...person} />
       ))}
       <style jsx>{`
         .container {

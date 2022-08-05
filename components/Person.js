@@ -1,8 +1,22 @@
+import { useRouter } from "next/router";
 import Image from "next/image";
 export default function Person(personItem) {
+  const router = useRouter();
+  const onClick = (id, name) => {
+    router.push(
+      {
+        pathname: `/person/${id}`,
+        query: {
+          name,
+        },
+      },
+      `/person/${id}`
+    );
+  };
+
   return (
     <>
-      <div className="item">
+      <div className="item" onClick={() => onClick(personItem.id, personItem.name)}>
         {personItem.squareImage === "https:undefined" ? (
           <Image
             src={
