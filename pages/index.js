@@ -3,9 +3,7 @@ import Person from "../components/Person";
 export default function IndexPage({ persons }) {
   return (
     <div className="container">
-      {persons?.map((person) => (
-        <Person key={person.id} {...person} />
-      ))}
+      {persons.length === 0 ? "Loading..." : persons?.map((person) => <Person key={person.id} {...person} />)}
       <style jsx>{`
         .container {
           display: grid;

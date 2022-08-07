@@ -3,31 +3,37 @@ import FinancialAssets from "../../components/FinancialAssets";
 export default function Detail(data) {
   return (
     <div className="container">
-      <div className="userInfo">
-        <Image
-          src={data.squareImage}
-          width={500}
-          height={500}
-          objectFit="fill"
-          className="images"
-          // layout="responsive"
-        />
-        <div className="info">
-          <span className="name">{data.name}</span>
-          <h2>County : {data.country}</h2>
-          <h2 className="worth">Networth : {Math.floor(data.netWorth / 1000)} Billion</h2>
-          <h2 className="industry">Industry : {data.industries}</h2>
-          <p className="bio">{data.bio}</p>
-        </div>
-      </div>
-      <div className="financialAssets">
-        <h1>FinancialAssets</h1>
-        <div className="AssetGrid">
-          {data.financialAssets?.map((asset, index) => (
-            <FinancialAssets key={index} {...asset} />
-          ))}
-        </div>
-      </div>
+      {!data ? (
+        "Loading..."
+      ) : (
+        <>
+          <div className="userInfo">
+            <Image
+              src={data.squareImage}
+              width={500}
+              height={500}
+              objectFit="fill"
+              className="images"
+              // layout="responsive"
+            />
+            <div className="info">
+              <span className="name">{data.name}</span>
+              <h2>County : {data.country}</h2>
+              <h2 className="worth">Networth : {Math.floor(data.netWorth / 1000)} Billion</h2>
+              <h2 className="industry">Industry : {data.industries}</h2>
+              <p className="bio">{data.bio}</p>
+            </div>
+          </div>
+          <div className="financialAssets">
+            <h1>FinancialAssets</h1>
+            <div className="AssetGrid">
+              {data.financialAssets?.map((asset, index) => (
+                <FinancialAssets key={index} {...asset} />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
       <style global jsx>{`
         .container {
           margin-top: 30rem;
